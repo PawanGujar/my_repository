@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Selection</title>
+<style>
+  body { font-family: Arial, sans-serif; }
+  .container { max-width: 600px; margin: auto; padding: 20px; }
+  h2 { text-align: center; }
+  form { margin-top: 20px; }
+  .project-list { margin: 20px 0; }
+  .project-item { margin-bottom: 10px; }
+  button { display: block; width: 100%; padding: 10px; margin-top: 20px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Project Selection Form</h2>
+  <form id="projectForm">
+    <label for="name">Enter your name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <div class="project-list">
+      <p>Select a project:</p>
+      <!-- List of dummy projects with radio buttons -->
+      <label class="project-item"><input type="radio" name="project" value="Project 1" required> Project 1</label>
+      <label class="project-item"><input type="radio" name="project" value="Project 2"> Project 2</label>
+      <label class="project-item"><input type="radio" name="project" value="Project 3"> Project 3</label>
+      <label class="project-item"><input type="radio" name="project" value="Project 4"> Project 4</label>
+      <label class="project-item"><input type="radio" name="project" value="Project 5"> Project 5</label>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<script>
+document.getElementById('projectForm').onsubmit = function(event) {
+  event.preventDefault();
+  var name = document.getElementById('name').value;
+  var selectedProject = document.querySelector('input[name="project"]:checked').value;
+  // Display the selected project and name on the next page
+  document.body.innerHTML = '<h2>Project Details</h2>' +
+                            '<p>Name: ' + name + '</p>' +
+                            '<p>Selected Project: ' + selectedProject + '</p>';
+};
+</script>
+</body>
+</html>
